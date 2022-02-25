@@ -11,7 +11,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import net.minidev.json.annotate.JsonIgnore;
 
 @Entity
 public class Client implements Serializable {
