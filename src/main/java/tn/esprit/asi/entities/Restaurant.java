@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
-import net.minidev.json.annotate.JsonIgnore;
-
 @Entity
 public class Restaurant implements Serializable{
 
