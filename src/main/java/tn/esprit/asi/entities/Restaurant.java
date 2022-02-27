@@ -56,6 +56,14 @@ public class Restaurant implements Serializable{
 		this.clients = clients;
 	}
 	
+	
+	
+	public Restaurant(String nom, String adresse, CategorieResto categorieResto) {
+		super();
+		this.nom = nom;
+		this.adresse = adresse;
+		this.categorieResto = categorieResto;
+	}
 	public Restaurant(Long idRestaurant, String nom, String adresse, CategorieResto categorieResto,
 			Set<Client> clients) {
 		super();

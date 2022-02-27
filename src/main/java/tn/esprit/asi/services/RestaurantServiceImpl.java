@@ -12,9 +12,9 @@ public class RestaurantServiceImpl implements IRestaurantService{
 	@Autowired
 	RestaurantRepository restaurantRepository;
 	@Override
-	public void ajouterRestaurant(Restaurant restaurant) {
+	public Restaurant ajouterRestaurant(Restaurant restaurant) {
 		restaurantRepository.save(restaurant);
-		
+		return restaurant;
 	}
 
 }
