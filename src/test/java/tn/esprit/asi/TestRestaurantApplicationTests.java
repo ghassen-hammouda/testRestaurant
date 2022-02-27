@@ -1,4 +1,4 @@
-package tn.esprit.asi;
+/*package tn.esprit.asi;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,4 +10,4 @@ class TestRestaurantApplicationTests {
 	void contextLoads() {
 	}
 
-}
+}*/
