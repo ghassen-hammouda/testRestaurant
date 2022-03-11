@@ -30,7 +30,6 @@ public class ReservationServiceImpl implements IReservationService{
 	    System.out.print(c);
 	    c.setReservation(reservation);
 	    clientRepository.save(c);
-	//   reservation.getClientsReservation().add(c);  
 		
 		 
 		

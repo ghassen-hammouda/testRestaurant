@@ -4,7 +4,6 @@ import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import tn.esprit.asi.entities.Client;
 import tn.esprit.asi.entities.Reservation;
 import tn.esprit.asi.entities.Restaurant;
@@ -25,7 +24,6 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	public void affecterClientARestaurant(Long idClient, Long idRestaurant) {
-		// TODO Auto-generated method stub
 		Client c =clientRepository.findById(idClient).orElse(null);
 		Restaurant r=restaurantRepository.findById(idRestaurant).orElse(null);
 		r.getClients().add(c);
