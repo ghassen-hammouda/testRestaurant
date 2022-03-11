@@ -24,6 +24,7 @@ public class RestaurantServiceImplTest {
 		System.out.println("savedResto : "+savedResto.getAdresse());
 		assertNotNull(savedResto.getAdresse());		
 		
+		
 	} 
 	
 }
