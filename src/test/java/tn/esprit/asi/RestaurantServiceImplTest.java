@@ -22,6 +22,8 @@ public class RestaurantServiceImplTest {
 		Restaurant r = new Restaurant("capricio restaurant","hammamet",CategorieResto.TROISETOILES);
 		Restaurant savedResto= restaurantService.ajouterRestaurant(r);
 		System.out.println("savedResto : "+savedResto.getAdresse());
+		System.out.println("savedResto2 : "+savedResto.getAdresse());
+
 		assertNotNull(savedResto.getAdresse());	
 		
 		
