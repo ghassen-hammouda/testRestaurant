@@ -23,9 +23,6 @@ public class RestaurantServiceImplTest {
 		Restaurant savedResto= restaurantService.ajouterRestaurant(r);
 		System.out.println("savedResto : "+savedResto.getAdresse());
 		assertNotNull(savedResto.getAdresse());		
-		
-		
-		
 	} 
 	
 }
