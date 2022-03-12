@@ -17,23 +17,8 @@
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		
-		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-		
-		
-		
- <sonar.host.url>http://localhost:9000</sonar.host.url>
- <jacoco.version>0.8.6</jacoco.version>
-    <sonar.sources>src/main</sonar.sources>
-    <sonar.tests>src/test</sonar.tests>
-    <!-- Below property indicates the pattern of the test suite -->
-    <runSuite>**/*Suite.class</runSuite>
-    <!-- Sonar-JaCoCo properties -->
-    <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-    <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
-    <sonar.jacoco.reportPaths>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPaths>
-    <sonar.language>java</sonar.language>
-    <jacoco.out.path>${session.executionRootDirectory}/target</jacoco.out.path>
-    <sonar.jacoco.itReportPath>${env.WORKSPACE}/target/${jacoco.out.file}</sonar.jacoco.itReportPath>
+		<surefireArgLine />
+<jacoco.version>0.8.2</jacoco.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -86,34 +71,50 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version>
 			</plugin>
-
-
 <plugin>
-   <groupId>org.jacoco</groupId>
-   <artifactId>jacoco-maven-plugin</artifactId>
-   <version>0.8.6</version>
-   <executions>
-      <execution>
-          <id>prepare-agent</id>
-          <goals>
-             <goal>prepare-agent</goal>
-          </goals>
-          <phase>test-compile</phase>
-      </execution>
-      <execution>
-          <id>report</id>
-          <goals>
-             <goal>report</goal>
-          </goals>
-          <phase>test</phase>
-      </execution>
+    <groupId>org.jacoco</groupId>
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>${jacoco.version}</version>
+    <executions>
+        <execution>
+            <id>pre-unit-test</id>
+            <goals>
+                <goal>prepare-agent</goal>
+            </goals>
+            <configuration>
+                <destFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</destFile>
+                <propertyName>surefireArgLine</propertyName>
+                <excludes>
+                    <exclude>${project.build.directory}/classes/**/*Impl*.class</exclude>
+                    <exclude>${project.build.directory}/test-classes/**/*.class</exclude>
+                </excludes>
+            </configuration>
+        </execution>
+        <execution>
+            <id>post-unit-test</id>
+            <phase>test</phase>
+            <goals>
+                <goal>report</goal>
+            </goals>
+            <configuration>
+                <dataFile>${project.build.directory}/coverage-reports/jacoco-ut.exec</dataFile>
+                <outputDirectory>${project.reporting.outputDirectory}/jacoco-ut</outputDirectory>
+                <excludes>
+                    <exclude>${project.build.directory}/classes/**/*Impl*.class</exclude>
+                    <exclude>${project.build.directory}/test-classes/**/*.class</exclude>
+                </excludes>
+            </configuration>
+        </execution>
     </executions>
+    <configuration>
+        <excludes>
+            <exclude>${project.build.directory}/classes/**/*Impl*.class</exclude>
+            <exclude>${project.build.directory}/test-classes/**/*.class</exclude>
+        </excludes>
+    </configuration>
 </plugin>
-<plugin>
-				<groupId>org.sonarsource.scanner.maven</groupId>
-				<artifactId>sonar-maven-plugin</artifactId>
-				<version>3.7.0.1746</version>
-			</plugin>
+
+
 			
 		</plugins>
 	</build>
