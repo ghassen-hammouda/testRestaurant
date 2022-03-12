@@ -44,13 +44,13 @@ pipeline {
             }
         }
        
-               stage('Preparing the Static Tests : Jacoco') {
+          /*      stage('Preparing the Static Tests : Jacoco') {
             steps {
                 echo "In order to prepare our static tests, let's configure code coverage (Jacocco)"
                 bat 'mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install'
                 bat 'mvn org.jacoco:jacoco-maven-plugin:prepare-agent clean install'
             }
-        }
+        }*/
 
        
        
