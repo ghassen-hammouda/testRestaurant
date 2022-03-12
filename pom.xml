@@ -16,7 +16,13 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+		
+		
+		
  <sonar.host.url>http://localhost:9000</sonar.host.url>
+ <jacoco.version>0.8.6</jacoco.version>
     <sonar.sources>src/main</sonar.sources>
     <sonar.tests>src/test</sonar.tests>
     <!-- Below property indicates the pattern of the test suite -->
@@ -55,7 +61,7 @@
 		<dependency>
 			<groupId>org.jacoco</groupId>
 			<artifactId>jacoco-maven-plugin</artifactId>
-			<version>0.8.0</version>
+			<version>0.8.6</version> 
 		</dependency>
 
 		<dependency>
@@ -80,33 +86,28 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version>
 			</plugin>
-<plugin>
-    <groupId>org.jacoco</groupId>
-    <artifactId>jacoco-maven-plugin</artifactId>
-    <version>0.7.7.201606060606</version>
-    <executions>
-        <execution>
-            <goals>
-                <goal>prepare-agent</goal>
-            </goals>
-        </execution>
-        <execution>
-            <id>report</id>
-            <phase>prepare-package</phase>
-            <goals>
-                <goal>report</goal>
-            </goals>
-        </execution>
-    </executions>
-</plugin>
+
 
 <plugin>
-    <groupId>org.apache.maven.plugins</groupId>
-    <artifactId>maven-surefire-plugin</artifactId>
-    <version>2.10</version>
-    <configuration>
-        <argLine>-XX:-UseSplitVerifier ${jacoco.agent.argLine}</argLine>
-    </configuration>
+   <groupId>org.jacoco</groupId>
+   <artifactId>jacoco-maven-plugin</artifactId>
+   <version>0.8.6</version>
+   <executions>
+      <execution>
+          <id>prepare-agent</id>
+          <goals>
+             <goal>prepare-agent</goal>
+          </goals>
+          <phase>test-compile</phase>
+      </execution>
+      <execution>
+          <id>report</id>
+          <goals>
+             <goal>report</goal>
+          </goals>
+          <phase>test</phase>
+      </execution>
+    </executions>
 </plugin>
 			
 		</plugins>
