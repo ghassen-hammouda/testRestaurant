@@ -3,7 +3,6 @@ package tn.esprit.asi.entities;
 import java.io.Serializable;
 import java.util.Set;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -64,18 +63,15 @@ public class Restaurant implements Serializable{
 		this.adresse = adresse;
 		this.categorieResto = categorieResto;
 	}
-	public Restaurant(Long idRestaurant, String nom, String adresse, CategorieResto categorieResto,
-			Set<Client> clients) {
-		super();
-		this.idRestaurant = idRestaurant;
-		this.nom = nom;
-		this.adresse = adresse;
-		this.categorieResto = categorieResto;
-		this.clients = clients;
-	}
+	
 	public Restaurant() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+	@Override
+	public String toString() {
+		return "Restaurant [idRestaurant=" + idRestaurant + ", nom=" + nom + ", adresse=" + adresse
+				+ ", categorieResto=" + categorieResto + ", clients=" + clients + "]";
 	}
 	
 	

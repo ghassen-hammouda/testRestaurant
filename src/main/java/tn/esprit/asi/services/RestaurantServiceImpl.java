@@ -1,5 +1,7 @@
 package tn.esprit.asi.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,12 @@ public class RestaurantServiceImpl implements IRestaurantService{
 		restaurantRepository.save(restaurant);
 		return restaurant;
 	}
+	@Override
+	public List<Restaurant> getAllRestaurants() {
+		
+		return (List<Restaurant>) restaurantRepository.findAll();
+	}
+	
+	
 
 }
