@@ -19,6 +19,13 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven-jar-plugin.version>3.1.0</maven-jar-plugin.version>
 	</properties>
+	<servers>
+   <server>
+      <id>jenkins_nexus</id>
+      <username>nexus</username>
+      <password>nexus</password>
+    </server>
+  </servers>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
