@@ -22,5 +22,12 @@ public class RestaurantController {
 			restaurantService.ajouterRestaurant(restaurant);
 			
 		}
+	// http://localhost:8086/SpringMVC/getAllRestaurants
+		@GetMapping("/getAllRestaurants")
+		public void listeRestaurants() {
+			restaurantService.getAllRestaurants();
+			
+		}
+	
 
 }
