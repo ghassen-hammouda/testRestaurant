@@ -24,6 +24,7 @@ public class ClientServiceImpl implements IClientService {
 	}
 
 	public void affecterClientARestaurant(Long idClient, Long idRestaurant) {
+		System.out.println("hello");
 		Client c =clientRepository.findById(idClient).orElse(null);
 		Restaurant r=restaurantRepository.findById(idRestaurant).orElse(null);
 		r.getClients().add(c);
